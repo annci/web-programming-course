@@ -8,12 +8,24 @@ $(document).ready(function() {
 		
 	$('#divideButton').on('click', function() {
 		if ($('#display').val() == '') {
-			$('#output').html('tom')
 			return false
 		}
-		operator = '/'
+		// Case #4 Continue counting
+		if (result && !ePress && opPressed) {
+			//$('#output').html('firstNum = ' + firstNum)
+			secondNum = Number($('#display').val())
+			$('#display').val(calculate(firstNum, secondNum, operator))
+			operator = operator = '/'
+			firstNum = Number($('#display').val())
+		}
+		else {
+			operator = operator = '/'
+			firstNum = Number($('#display').val())
+			//result = true
+		}
+
 		opPressed = true
-		firstNum = Number($('#display').val())
+		numPressed = false
 		$('#output').html(operator)
 	})
 	
